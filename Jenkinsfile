@@ -62,6 +62,8 @@ pipeline {
     post {
       always {
         junit 'jest-results/junit.xml'
+        archiveArtifacts artifacts: 'build/**'
+        cleanWs()
       }
     }
 }
