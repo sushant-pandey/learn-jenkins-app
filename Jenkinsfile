@@ -7,6 +7,7 @@ pipeline {
         This is a block comment.
         This can be used to disable an entire stage
       */
+      /*
         stage('Build') {
           agent {
             docker {
@@ -25,6 +26,7 @@ pipeline {
                 '''
             }
         }
+        */
         stage('Test') {
           agent {
             docker {
@@ -63,8 +65,11 @@ pipeline {
       always {
         junit 'jest-results/junit.xml'
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        
+        /*
         archiveArtifacts artifacts: 'build/**'
         cleanWs()
+        */
       }
     }
 }
