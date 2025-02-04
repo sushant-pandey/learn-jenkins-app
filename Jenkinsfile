@@ -8,6 +8,7 @@ pipeline {
         This can be used to disable an entire stage
       */
       
+      /*
         stage('Build') {
           agent {
             docker {
@@ -26,6 +27,7 @@ pipeline {
                 '''
             }
         }
+        */
         
         stage('Test') {
           agent {
