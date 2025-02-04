@@ -57,6 +57,23 @@ pipeline {
                 '''
             }
         }
+        stage('Prod E2E Test') {
+          agent {
+            docker {
+              image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+              reuseNode true
+              args '-u root:root'
+            }
+          }
+          environment {
+            CI_ENVIRONMENT_URL = 'https://papaya-sable-ccc665.netlify.app'
+          }
+          steps {
+            sh '''
+              npx playwright test --reporter=html
+            '''
+          }
+        }
     }
     post {
       always {
