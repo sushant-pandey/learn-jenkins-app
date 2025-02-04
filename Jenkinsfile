@@ -50,7 +50,7 @@ pipeline {
           }
           steps {
             sh '''
-              echo 'E2E Playwright Test Stage'
+              echo 'E2E Playwright Test Stage with sleep 10s'
               npm install serve
               node_modules/.bin/serve -s build &
               sleep 10
