@@ -7,7 +7,7 @@ pipeline {
         This is a block comment.
         This can be used to disable an entire stage
       */
-      /*
+      
         stage('Build') {
           agent {
             docker {
@@ -26,7 +26,7 @@ pipeline {
                 '''
             }
         }
-        */
+        
         stage('Test') {
           agent {
             docker {
